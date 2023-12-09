@@ -47,3 +47,6 @@ h3 {
 		transform: rotate(365deg);
 	}
 }
+.label-active {
+	background-color: rgb(255, 255, 255, 0.5);
+}
