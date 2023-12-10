@@ -7,7 +7,7 @@ const getLabels = async (): Promise<Label[]> => {
 	// const res = await fetch('https://api.github.com/repos/facebook/react/labels')
 	// const data = await res.json()
 	await sleep(3);
-	const { data } = await githubAPI.get<Label[]>("/labels");
+	const { data } = await githubAPI.get<Label[]>("/labels?per_page=100");
 	console.log(data);
 	return data;
 };
@@ -17,8 +17,8 @@ export const UseLabels = () => {
 		queryFn: getLabels,
 		refetchOnWindowFocus: false,
 		staleTime: 1000 * 60 * 60,
-        // placeholderData
-        // initialData no usar junto a staletime
+		// placeholderData
+		// initialData no usar junto a staletime
 	});
 	return { labelsQuery };
 };
